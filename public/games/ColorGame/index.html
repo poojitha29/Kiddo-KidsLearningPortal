@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" ng-app="StroopGame">
+<head>
+  <meta charset="utf-8">
+  <title>Color Game</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/bootstrap-responsive.css"/>
+  
+</head>
+
+<body style="background-color:transparent" ng-controller="StroopGameCtrl" ui-Keydown="{71 : 'clicked(\'green\')',82 : 'clicked(\'red\')','66' : 'clicked(\'blue\')','79' : 'clicked(\'orange\')' }" style="background-color:MediumSlateBlue">
+	<div class="row-fluid" style="width:90%; margin-left:10%;margin-top:20px" >
+		<div >
+			<legend style="color:yellow">Countdown:<span ng-class='UI.countDownClass' ng-bind="game.countDown || '?'"></span></legend>		
+			
+			
+			<div id="summary" ng-show="game.isStarted" ng-cloak>
+			   Total right: {{game.rightCount}}, Total wrong:{{game.wrongCount}}, Total Answered {{game.rightCount+game.wrongCount}}</br>
+			<div class="progress" style="width:400px">
+				<div class="bar bar-success" style={{UI.rightLength}}></div>
+				<div class="bar bar-danger" style={{UI.wrongLength}}></div>
+			</div>
+			</div>
+			
+			<div class="row-fluid">		
+				<div class="box">
+					<div ng-class="game.quizClass">
+						<span ng-bind="game.quizText || 'Color'"></span>				
+					</div>
+				</div>
+				<div class="box2">
+					<img ng-src={{UI.imgSrc}} style="width:160px; height:160px; margin-left:10%; margin-top:10%" ng-cloak></img>
+				</div>
+				
+			</div>
+			<div ng-show='UI.showStartButton' style="margin-top:20px; margin-bottom:20px;">		   
+				<a class="btn btn-large btn-primary" ng-click="startGame()">Start Play!</a>
+			</div>
+			
+			<div ng-show='UI.showGameButton' style="margin-top:20px; margin-bottom:20px;" ng-cloak>
+				<a class="btn btn-large btn-danger" ng-click="clicked('green')">Green(G)</a>
+				<a class="btn btn-large btn-info" ng-click="clicked('red')">Red(R)</a>
+				<a class="btn btn-large btn-success" ng-click="clicked('orange')">Orange(O)</a>
+				<a class="btn btn-large btn-warning" ng-click="clicked('blue')">Blue(B)</a>				
+			</div>
+				
+					
+        </div>
+		<div >	
+			<div>		
+			 
+				<div >
+				 
+					<h4>Rules</h4>
+				 
+				</div>
+				<div >
+				  <div class="accordion-inner">
+					The rule for this game is to tell the color of the text rather than meaning of the text. </br>
+					You have <strong><span ng-bind="totalTime || '?'"></span>seconds </strong> to answer the questions.<br> You may either choose the buttons indicating the color 
+					or use keyboard: <br> 
+				Press"B":blue, press"G":green, press "R": red, press "O": orange.
+					<br>Wrong answer will subtract the score, while correct answer incrementing score. </br>
+					<strong>The buttons are intentionally scrambled colors. <br>Challenge yourself by using buttons instead of keyPress.</strong>
+				  </div>
+				</div>
+			  
+			  
+			    		  
+			</div>
+		 
+		</div>
+   </div>
+    <div ui-modal class="fade" ng-model="modalShown" id="myModal">
+		<div class="modal-header">
+			<h4>Your Score</h4>
+		</div>
+		<div class="modal-body well">
+			<p>In {{totalTime}} seconds,<br>you answered {{game.rightCount+game.wrongCount}} questions</br>
+			Correct: {{game.rightCount}} <br> Wrong: {{game.wrongCount}}  </br>
+			Total score is:{{game.totalScore}}.</br>
+			
+			</p>
+			<button class="btn btn-warning cancel" ng-click="modalShown=false">Close</button>
+		</div>		
+		
+	</div>
+	
+	<hr/>
+	<footer>
+	</footer> 
+
+	<script src="lib/jquery-1.7.2.min.js"></script>
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-ui.js"></script>
+	<script src="lib/bootstrap.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+	
+	
+	
+</body>
+</html>

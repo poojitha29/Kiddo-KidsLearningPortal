@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<HTML>
+    <HEAD>
+        <title>Internationalization Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- JS -->
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/jquery.i18n.properties-min-1.0.9.js"></script>
+
+        <script type="text/javascript">
+            // load I18N bundles
+            $(document).ready(function() {
+                loadBundles($.i18n.browserLang());
+
+                // configure language combo box
+                $('#lang').change(function() {
+                    var selection = $('#lang option:selected').val();
+                    loadBundles(selection !== 'browser' ? selection : $.i18n.browserLang());
+
+                });
+            });
+
+            function loadBundles(lang) {
+                $.i18n.properties({
+                    name: 'Messages',
+                    path: 'bundle/',
+                    mode: 'both',
+                    language: lang,
+                    callback: function() {
+                        //$("#msg_welcome").text($.i18n.prop('msg_welcome'));
+                        $("#msg_welcome").text(msg_welcome);
+                        $("#msg_selLang").text(msg_selLang(lang));
+                    }
+                });
+            }
+
+        </script>
+        <style>
+            body {color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+        </style>
+    </HEAD>
+
+    <BODY>
+        <h2 style="text-align: center; color:#777;">Internationalization using jQuery.i18n.properties</h2>
+
+        <div style="margin-left: 20px; margin-bottom: 20px;" id="langBox">
+            Language:
+            <select id="lang">
+                <option value="browser" selected>Browser Default</option>
+                <option value="en">en</option>
+                <option value="de_DE">de_DE</option>
+                <option value="es_ES">es_ES</option>
+                <option value="fr">fr</option>
+
+            </select>
+        </div>
+        <div style="margin-left: 20px;" id="msg_welcome">Welcome to the Demo Site!</div><br>
+        <div style="margin-left: 20px;" id="msg_selLang">Your Selected Language is: Default </div>
+
+    </BODY>
+</HTML>

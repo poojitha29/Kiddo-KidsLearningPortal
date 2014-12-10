@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Application styles -->
+  <link rel="stylesheet" href="css/i18nextWT.css">
+</head>
+
+<body>
+  <!-- Optional Header -->
+  <div class="header">
+    <div class="header-inner"></div>
+  </div>
+
+  <div class="main">
+    <div class="main-inner">fssf</div>
+  </div>
+
+  <!-- Optional Footer -->
+  <div class="footer">
+    <div class="footer-inner"></div>
+  </div>
+
+  <!-- Application source -->
+  <script src="js/i18nextWT.js"></script>
+
+  <!-- Initalization callback for configuration -->
+  <script language="javascipt" type="text/javascript">
+    i18nextWT_onready = function(wt) {
+
+      wt.config(
+        {
+          languages: ["en-US", "de", "fr", "dev"],
+          namespaces: ["ns.common", "ns.special"],
+          resGetPath: "locales/resources.json?lng=__lng__&ns=__ns__",
+          resChangePath: "locales/change/__lng__/__ns__",
+          resRemovePath: "locales/remove/__lng__/__ns__",
+          fallbackLng: "dev",
+          dynamicLoad: true
+        }
+      )
+
+      wt.start();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+
+.box{
+width:400px;
+height:200px;
+display: inline-block;
+margin: auto;
+margin-right:20px;
+margin-top:20px;
+background-color: white;
+
+vertical-align:bottom;
+background: #ffffff; 
+border-radius: 10px;
+	
+}
+.red{
+margin-left: 100px;
+margin-top: 70px;
+font-family: Gill Sans; 
+font-size: 50px;
+color: red;
+
+}
+.blue{
+margin-left: 100px;
+margin-top: 70px;font-family: Gill Sans; 
+font-size: 50px; 
+color: blue;
+}
+.green{
+margin-left: 100px;
+margin-top: 70px;
+font-family: Gill Sans; 
+font-size: 50px; 
+color:green;
+}
+.orange{
+margin-left: 100px;
+margin-top: 70px;
+font-family: Gill Sans; 
+font-size: 50px; 
+color:orange;
+}
+
+.box2{
+width:200px;
+height:200px;
+display: inline-block;
+margin: auto;
+margin-right:20px;
+margin-top:20px;
+background-color: white;
+vertical-align:bottom;
+background: #ffffff; 
+border-radius: 10px;
+}
+
+
+

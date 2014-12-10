@@ -1,0 +1,26 @@
+/*Simple reset*/
+#target, #src > img {border: thick solid pink; padding: 2px; margin:4px;}
+#target {height: 81px; width: 81px; text-align: center; display: table;}
+#target > p {display: table-cell; vertical-align: middle;}
+#target > img {margin: 1px;}
+img.dragged {background-color: lightgrey;}
+
+/*.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: #b0e0e6;
+    -webkit-filter: blur(100px);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+*/
+
+.canvas {
+  position: relative;
+  width: 100%;
+  padding: 2em 0;
+}
+
+
+
+

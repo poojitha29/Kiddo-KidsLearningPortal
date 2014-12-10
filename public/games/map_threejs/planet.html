@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <title> Planet 3D </title>
+  <meta name="description" content=" Learn and feel the 8 planets of our solar system. This application is developed based on THREEJS library extension">
+
+<script src="vendor/jquery-2.1.1.min.js"></script>
+<script src='vendor/three.min.js'></script>
+<script src='vendor/threex.planets.js'></script>
+<script type="text/javascript" src="vendor/jquery.i18n.properties.js"></script>
+  <script type="text/javascript">
+    // load I18N bundles
+    $(document).ready(function() {
+      loadBundles($.i18n.browserLang());
+
+      // configure language combo box
+      $('#lang').change(function() {
+        var selection = $('#lang option:selected').val();
+        loadBundles(selection !== 'browser' ? selection : $.i18n.browserLang());
+
+      });
+    });
+
+    function loadBundles(lang) {
+      console.log(lang);
+      $.i18n.properties({
+        name: 'Messages',
+        path: 'locale/',
+        mode: 'both',
+        language: lang,
+        callback: function() {
+          $("#msg_welcome").text($.i18n.prop('msg_welcome'));
+          $("#msg_welcome").text(msg_welcome);
+
+        }
+      });
+    }
+</script>
+  </head>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="planet.html" id="pageTitle"> Planets </a>
+      <ul>
+        <li>
+          <div style="margin-left: 20px; color: #ffffff" id="msg_welcome">Welcome to the Demo Site!</div><br>
+        </li>
+        <li>
+         <span style="color: #ffffff">Language:</span>
+          <select id="lang">
+            <option value="browser" selected>Browser Default</option>
+            <option value="en">English</option>
+            <option value="es_ES">Spanish</option>
+          </select>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+</div>
+<div style='position:absolute'>
+  <select onchange="switchValue(this.value)">
+    <option value="default" selected> Select from here </option>
+    <option value="Sun"> Sun </option>
+    <option value="Mercury"> Mercury </option>
+    <option value="Venus"> Venus </option>
+    <option value="Earth"> Earth </option>
+    <option value="Mars"> Mars </option>
+    <option value="Jupiter"> Jupiter </option>
+    <option value="Saturn"> Saturn </option>
+    <option value="Uranus"> Uranus </option>
+    <option value="Neptune"> Neptune </option>
+  </select>
+
+  <button id="map3d" onclick="map()"> 3D World Map</button>
+  <button id="d3map" onclick="d3map()"> D3 World Map</button>>
+</div>
+<body style='margin: 0px; background-color: #000000; overflow: hidden;'>
+<script src="js/planets.js"></script>
+</body>
