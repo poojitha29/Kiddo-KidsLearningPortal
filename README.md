@@ -1,4 +1,4 @@
-CMPE297_Kiddo
+#Kiddo
 =============
 
 CMPE297 project Kiddo a kids learning portal
